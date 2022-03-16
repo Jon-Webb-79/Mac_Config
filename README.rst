@@ -44,11 +44,12 @@ And git.  However, the user should also install GitHub-cli with the following co
 
 ``% brew install gh``
 
+Install ITerm2
+##############
+
 NeoVim
 ******
 Install NeoVim with the following command
-
-https://medium.com/@rohmanhakim/how-to-set-up-code-completion-for-vim-in-macos-9766dd459385
 
 ``% brew install neovim``
 
@@ -78,3 +79,46 @@ Then install the powerline fonts
 
 On the upper panel open ``Terminal >> Prefernces`` and change the terminal font to a powerline
 font.
+
+Create a directory in your home directory titled ``.config`` if it does not already exist;
+
+``% mkdir .config``
+
+Within the ``.config`` directory create another directory titled ``nvim``.  Move the ``init.nvim``
+file from the cloned directory to the ``nvim`` directory.  Open the file with the following
+command
+
+``% nvim init.vim``
+
+This should display many errors that can be ignored.  Press the escape key, then simultaneously depress the
+Shift and : keys.  This should display a : symbol in the bottom left corner.  Type the following command;
+
+``:PlugInstall``
+
+The above command should install all vim packages in the ``init.vim`` file to include Conquerer of Command (CoC).
+Next we need to build to CoC pre-requisites.  Exit NeoVim by pressing Escape, then wq.
+
+``% cd ~/.local/share/nvim/plugged/coc.nvim``
+
+Install yarn
+
+``% npm install --global yarn``
+
+``% yarn install``
+
+``% yarn build``
+
+Install code development packages
+
+``% cd ~/.config/nvim``
+
+``% nvim init.vim``
+
+Within the init.vim file install teh appropriate CoC commands
+
+``:CocInstall coc-python``
+
+``:CocInstall coc-clanged``
+
+Install tmux
+############
