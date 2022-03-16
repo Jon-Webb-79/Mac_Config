@@ -48,14 +48,33 @@ NeoVim
 ******
 Install NeoVim with the following command
 
+https://medium.com/@rohmanhakim/how-to-set-up-code-completion-for-vim-in-macos-9766dd459385
+
 ``% brew install neovim``
 
 Install and configure related packages with the following commands
 
-``% brew install vim-plug``
+``% curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent/com/junegunn/vim-plug/master/plug.vim
 
-``% brew install node``
+``% brew install npm``
+
+``% brew install nodejs``
 
 ``% brew install python@3.XX``
 
 ``% pip3 install jedi``
+
+Install Powerline fonts by cd'ing to your home directory and running the following command
+
+``% git clone https://github/powerline/fonts.git --depth=1``
+
+Then install the powerline fonts
+
+``% ./install.sh``
+
+``cd ..``
+
+``rm -rf fonts``
+
+On the upper panel open ``Terminal >> Prefernces`` and change the terminal font to a powerline
+font.
