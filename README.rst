@@ -35,15 +35,27 @@ Homebrew
 ########
 Install the homebrew package manager with the following command
 
-``/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"``
+``% /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"``
 
 Git
 ###
 During the process of installing Homebrew, the installer will also install Xcode command line tools
 And git.  However, the user should also install GitHub-cli with the following command;
 
-``brew install gh``
+``% brew install gh``
 
 NeoVim
 ******
+Install NeoVim with the following command
 
+``% brew install neovim``
+
+Install and configure related packages with the following commands
+
+``% brew install vim-plug``
+
+``% brew install node``
+
+``% brew install python@3.XX``
+
+``% pip3 install jedi``
