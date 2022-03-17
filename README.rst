@@ -52,7 +52,7 @@ by pairing tmux with the native Terminal application.  For this reason we will n
 using ITerm2.  However, if a user decides to use this application, it can be downloaded
 with the following command;
 
-``brew cask install iterm2``
+``% brew cask install iterm2``
 
 The above command should install the ITerm2 executable to the ``Downloads`` directory.  The
 user should move the executable to the ``Applications`` directory at which point it
@@ -133,3 +133,25 @@ Within the init.vim file install teh appropriate CoC commands
 
 Install tmux
 ############
+Tmux can be installed with the following command;
+
+``% brew install tmux``
+
+Once tmux has been installed, check to see that it is working properly by typing
+
+``% tmux``
+
+If it is working, then type the following command to exit the tmux session.
+
+``% tmux kill-session``
+
+Clone the pluggin manager
+
+``% git clone https://github.com/tmux-plugins/tpm/tpm ~/.tmux/plugins/tpm``
+
+Move the ``.tmux.conf`` file from the cloned directory to the users
+home directory.  Open a tmux session and type ``Control-A-I`` to install
+all plugins.
+
+Bash
+####
