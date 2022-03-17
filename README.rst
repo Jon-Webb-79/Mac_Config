@@ -46,6 +46,17 @@ And git.  However, the user should also install GitHub-cli with the following co
 
 Install ITerm2
 ##############
+ITerm2 is a popular terminal emulator for Macintosh computers that allows functionality
+such as terminal splitting.  However, much of the functionality of ITerm2 can be achieved
+by pairing tmux with the native Terminal application.  For this reason we will not be
+using ITerm2.  However, if a user decides to use this application, it can be downloaded
+with the following command;
+
+``brew cask install iterm2``
+
+The above command should install the ITerm2 executable to the ``Downloads`` directory.  The
+user should move the executable to the ``Applications`` directory at which point it
+is ready for use.
 
 NeoVim
 ******
