@@ -155,3 +155,9 @@ all plugins.
 
 Bash
 ####
+
+The Apple version of bash is very old.  Upgrade to a new version and change to that shell
+
+``% brew install bash``
+
+``% sudo chsh -s /usr/local/bin/bash $(whoami)
