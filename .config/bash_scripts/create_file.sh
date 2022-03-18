@@ -21,7 +21,7 @@ language=$1
 if [ $language != "Python" ] && [ $language != "C" ] && [ $language != "C++" ] && \
     [ $language != "Arduino" ] && [ $language != "Python_Test" ] && \
 	[ $language != "C_Test" ] && [ $language != "C++_Test" ] && \
-	[ $language != "C_Lib" ] ; then
+	[ $language != "C_Lib" ] && [ $languagge != "C++_Lib" ]; then
 	echo 'Language must be Python, C, C++, Python_Test, C_Test, C++_Test, or Arduino'
 	exit 1
 fi

@@ -74,6 +74,8 @@ Install and configure related packages with the following commands
 
 ``% brew install python@3.XX``
 
+``% pip3 install powerline-status``
+
 ``% pip3 install jedi``
 
 Install Powerline fonts by cd'ing to your home directory and running the following command
@@ -155,9 +157,17 @@ all plugins.
 
 Bash
 ####
-
 The Apple version of bash is very old.  Upgrade to a new version and change to that shell
 
 ``% brew install bash``
 
 ``% sudo chsh -s /usr/local/bin/bash $(whoami)``
+
+Move the ``c_files``, ``c++_files``, ``bash_files`` and ``py_files`` directories
+from the cloned copy into the ``.config`` directory.  Next move the ``.bash_profile``
+and ``.bashrc`` files from the cloned copy to the home directory.  Close the terminal
+andd re-open.  If the files are working correctly there should be no errors and
+the powerline status bar should appear at the bottom of the terminal.
+
+Zsh
+###
