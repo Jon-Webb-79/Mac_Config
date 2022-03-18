@@ -181,4 +181,6 @@ Move the ``c_files``, ``c++_files``, ``zsh_scripts`` and ``py_files`` directorie
 from the cloned copy into the ``.config`` directory.  Next move the ``.zsh_profile``
 and ``.zshrc`` files from the cloned copy to the home directory.  Close the terminal
 andd re-open.  If the files are working correctly there should be no errors and
-the powerline status bar should appear at the bottom of the terminal.
+the powerline status bar should appear at the bottom of the terminal.  Close the terminal
+and re-open.  If the terminal has no errors and a powerline status bar, then the install
+was successful.
