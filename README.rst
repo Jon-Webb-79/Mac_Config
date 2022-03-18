@@ -184,3 +184,32 @@ andd re-open.  If the files are working correctly there should be no errors and
 the powerline status bar should appear at the bottom of the terminal.  Close the terminal
 and re-open.  If the terminal has no errors and a powerline status bar, then the install
 was successful.
+
+Install Misc.Tools
+##################
+
+``% brew install --cask google-earth-pro``
+
+``% brew install htop``
+
+``% brew install tree``
+
+``% brew install --cask textmate``
+
+``% brew install rsync``
+
+``% brew install neofetch``
+
+``% brew install master-pdf-editor``
+
+``% brew install --cask libreoffice``
+
+``% brew install openssh``
+
+Install Arduino
+###############
+Install arduino packages.  This only applies if you have an arduino baord.
+
+``% brew install --cask arduino``
+
+``% brew install arduino-cli``
