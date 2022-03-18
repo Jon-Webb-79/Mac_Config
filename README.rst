@@ -206,6 +206,8 @@ Install Misc.Tools
 
 ``% brew install openssh``
 
+``% brew install fail2ban``
+
 Install Arduino
 ###############
 Install arduino packages.  This only applies if you have an arduino baord.
