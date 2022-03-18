@@ -20,4 +20,6 @@ to include backup drives and thumb drives.
    d. You can also reformat a  drive by opening Disk Utility, clicking
       on the external drive you wish to reformat and then selecting
       the format type.  I recommend ``Mac OS Extended (Journaled)``.
-      The drive can also be re-labeled from this method
+      The drive can also be re-labeled from this method.  This should
+      prompt the user to set up the backup drive for use with TimeMachine
+      which will create a master backup and successive snapshots.
