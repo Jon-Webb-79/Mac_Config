@@ -253,4 +253,9 @@ Install Extra Codde Dev Packages
 
 ``% brew install --cask visual-studio-code``
 
+Backup
+######
 
+1. Format the drive.  Click on the ``Disk Utility``.  Click on the backup drive,
+   then click Erase.  This should prompt the user to enter the format type,
+   which should be ``MacOS Extended (journaled)``
