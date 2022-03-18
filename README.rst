@@ -213,3 +213,20 @@ Install arduino packages.  This only applies if you have an arduino baord.
 ``% brew install --cask arduino``
 
 ``% brew install arduino-cli``
+
+Update the local cache of available platforms
+
+``% arduino-cli core update-index``
+
+Check to see if the board is connected.  This assumes the arduino board is plugged
+into a USB port
+
+``% arduino-cli board list``
+
+Install the platform for your board
+
+``% arduino-cli core install arduino:avr``
+
+Verify that the board is installed
+
+``% arduino-cli core list``
