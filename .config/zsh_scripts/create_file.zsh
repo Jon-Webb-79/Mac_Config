@@ -30,10 +30,10 @@ fi
 
 name='Jonathan A. Webb'
 company='Jon Webb'
-copy='/usr/bin/cp'
-dir=`/usr/bin/pwd`
+copy='/bin/cp'
+dir=`/bin/pwd`
 replace='/usr/bin/sed'
-make_dir='/usr/bin/mkdir'
+make_dir='/bin/mkdir'
 py_dir=$HOME'/.config/py_files/'
 c_dir=$HOME'/.config/c_files/'
 cpp_dir=$HOME'/.config/c++_files/'
@@ -50,107 +50,107 @@ if [[ $language == "Python" ]] then
     echo "Enter the filename without the .py extension"
  	read file_name
     $copy $py_dir'main.py' $dir'/'$file_name'.py'
-	$replace -i "s/Day/$day/g" $dir'/'$file_name'.py' 
-    $replace -i "s/Month/$month/g" $dir'/'$file_name'.py'
-    $replace -i "s/Year/$year/g" $dir'/'$file_name'.py'
-    $replace -i "s/Name/$name/g" $dir'/'$file_name'.py'
-	$replace -i "s/Company/$company/g" $dir'/'$file_name'.py'
-    $replace -i "s/filename/$file_name/g" $dir'/'$file_name'.py'
+	$replace -i '' -e "s/Day/$day/g" $dir'/'$file_name'.py' 
+    $replace -i '' -e "s/Month/$month/g" $dir'/'$file_name'.py'
+    $replace -i '' -e "s/Year/$year/g" $dir'/'$file_name'.py'
+    $replace -i '' -e "s/Name/$name/g" $dir'/'$file_name'.py'
+	$replace -i '' -e "s/Company/$company/g" $dir'/'$file_name'.py'
+    $replace -i '' -e "s/filename/$file_name/g" $dir'/'$file_name'.py'
 elif [[ $language == "Python_Test" ]] then
 	echo "Enter the filename without the .py extension"
 	read file_name
 	$copy $py_dir'test.py' $dir'/'$file_name'.py'
 
-    $replace -i "s/Day/$day/g" $dir'/'$file_name'.py' 
-    $replace -i "s/Month/$month/g" $dir'/'$file_name'.py'
-    $replace -i "s/Year/$year/g" $dir'/'$file_name'.py'
-    $replace -i "s/Name/$name/g" $dir'/'$file_name'.py'
-	$replace -i "s/Company/$company/g" $dir'/'$file_name'.py'
-	$replace -i "s/filename/$file_name/g" $dir'/'$file_name'.py'
+    $replace -i '' -e "s/Day/$day/g" $dir'/'$file_name'.py' 
+    $replace -i '' -e "s/Month/$month/g" $dir'/'$file_name'.py'
+    $replace -i '' -e "s/Year/$year/g" $dir'/'$file_name'.py'
+    $replace -i '' -e "s/Name/$name/g" $dir'/'$file_name'.py'
+	$replace -i '' -e "s/Company/$company/g" $dir'/'$file_name'.py'
+	$replace -i '' -e "s/filename/$file_name/g" $dir'/'$file_name'.py'
 elif [[ $language == "C" ]] then
     echo "Enter the filename without the .c or .h extension"
 	read file_name
 	$copy $c_dir'additional_file.c' $dir'/'$file_name'.c'
     $copy $c_dir'additional_file.h' $dir'/'$file_name'.h'
 
-    $replace -i "s/Day/$day/g" $dir'/'$file_name'.c' 
-    $replace -i "s/Month/$month/g" $dir'/'$file_name'.c'
-    $replace -i "s/Year/$year/g" $dir'/'$file_name'.c'
-    $replace -i "s/Name/$name/g" $dir'/'$file_name'.c'
-	$replace -i "s/Company/$company/g" $dir'/'$file_name'.c'
-    $replace -i "s/filename/$file_name/g" $dir'/'$file_name'.c'
+    $replace -i '' -e "s/Day/$day/g" $dir'/'$file_name'.c' 
+    $replace -i '' -e "s/Month/$month/g" $dir'/'$file_name'.c'
+    $replace -i '' -e "s/Year/$year/g" $dir'/'$file_name'.c'
+    $replace -i '' -e "s/Name/$name/g" $dir'/'$file_name'.c'
+	$replace -i '' -e "s/Company/$company/g" $dir'/'$file_name'.c'
+    $replace -i '' -e "s/filename/$file_name/g" $dir'/'$file_name'.c'
 
-    $replace -i "s/Day/$day/g" $dir'/'$file_name'.h' 
-    $replace -i "s/Month/$month/g" $dir'/'$file_name'.h'
-    $replace -i "s/Year/$year/g" $dir'/'$file_name'.h'
-    $replace -i "s/Name/$name/g" $dir'/'$file_name'.h'
-	$replace -i "s/Company/$company/g" $dir'/'$file_name'.h'
-    $replace -i "s/filename/$file_name/g" $dir'/'$file_name'.h'
+    $replace -i '' -e "s/Day/$day/g" $dir'/'$file_name'.h' 
+    $replace -i '' -e "s/Month/$month/g" $dir'/'$file_name'.h'
+    $replace -i '' -e "s/Year/$year/g" $dir'/'$file_name'.h'
+    $replace -i '' -e "s/Name/$name/g" $dir'/'$file_name'.h'
+	$replace -i '' -e "s/Company/$company/g" $dir'/'$file_name'.h'
+    $replace -i '' -e "s/filename/$file_name/g" $dir'/'$file_name'.h'
 elif [[ $language == "C++" ]] then
     echo "Enter the filename without the .cpp or .hpp extension"
 	read file_name
     $copy $cpp_dir'additional_file.cpp' $dir'/'$file_name'.cpp'
     $copy $cpp_dir'additional_file.hpp' $dir'/'$file_name'.hpp'
 
-    $replace -i "s/Day/$day/g" $dir'/'$file_name'.cpp' 
-    $replace -i "s/Month/$month/g" $dir'/'$file_name'.cpp'
-    $replace -i "s/Year/$year/g" $dir'/'$file_name'.cpp'
-    $replace -i "s/Name/$name/g" $dir'/'$file_name'.cpp'
-	$replace -i "s/Company/$company/g" $dir'/'$file_name'.cpp'
-    $replace -i "s/filename/$file_name/g" $dir'/'$file_name'.cpp'
+    $replace -i '' -e "s/Day/$day/g" $dir'/'$file_name'.cpp' 
+    $replace -i '' -e "s/Month/$month/g" $dir'/'$file_name'.cpp'
+    $replace -i '' -e "s/Year/$year/g" $dir'/'$file_name'.cpp'
+    $replace -i '' -e "s/Name/$name/g" $dir'/'$file_name'.cpp'
+	$replace -i '' -e "s/Company/$company/g" $dir'/'$file_name'.cpp'
+    $replace -i '' -e "s/filename/$file_name/g" $dir'/'$file_name'.cpp'
 
-    $replace -i "s/Day/$day/g" $dir'/'$file_name'.hpp' 
-    $replace -i "s/Month/$month/g" $dir'/'$file_name'.hpp'
-    $replace -i "s/Year/$year/g" $dir'/'$file_name'.hpp'
-    $replace -i "s/Name/$name/g" $dir'/'$file_name'.hpp'
-	$replace -i "s/Company/$company/g" $dir'/'$file_name'.hpp'
-    $replace -i "s/filename/$file_name/g" $dir'/'$file_name'.hpp'
+    $replace -i '' -e "s/Day/$day/g" $dir'/'$file_name'.hpp' 
+    $replace -i '' -e "s/Month/$month/g" $dir'/'$file_name'.hpp'
+    $replace -i '' -e "s/Year/$year/g" $dir'/'$file_name'.hpp'
+    $replace -i '' -e "s/Name/$name/g" $dir'/'$file_name'.hpp'
+	$replace -i '' -e "s/Company/$company/g" $dir'/'$file_name'.hpp'
+    $replace -i '' -e "s/filename/$file_name/g" $dir'/'$file_name'.hpp'
 elif [[ $language == "C_Test" ]] then
 	echo "Enter the filename without the .cpp extension"
 	read file_name
 	$copy $c_dir'test.cpp' $dir'/'$file_name'.cpp'
     
-	$replace -i "s/Day/$day/g" $dir'/'$file_name'.cpp' 
-    $replace -i "s/Month/$month/g" $dir'/'$file_name'.cpp'
-    $replace -i "s/Year/$year/g" $dir'/'$file_name'.cpp'
-    $replace -i "s/Name/$name/g" $dir'/'$file_name'.cpp'
-	$replace -i "s/Company/$company/g" $dir'/'$file_name'.cpp'
-	$replace -i "s/filename/$file_name/g" $dir'/'$file_name'.cpp'
+	$replace -i '' -e "s/Day/$day/g" $dir'/'$file_name'.cpp' 
+    $replace -i '' -e "s/Month/$month/g" $dir'/'$file_name'.cpp'
+    $replace -i '' -e "s/Year/$year/g" $dir'/'$file_name'.cpp'
+    $replace -i '' -e "s/Name/$name/g" $dir'/'$file_name'.cpp'
+	$replace -i '' -e "s/Company/$company/g" $dir'/'$file_name'.cpp'
+	$replace -i '' -e "s/filename/$file_name/g" $dir'/'$file_name'.cpp'
 elif [[ $language == "C++_Test" ]] then
 	echo "Enter the filename without the .cpp extension"
 	read file_name
 	$copy $cpp_dir'test.cpp' $dir'/'$file_name'.cpp'
     
-	$replace -i "s/Day/$day/g" $dir'/'$file_name'.cpp' 
-    $replace -i "s/Month/$month/g" $dir'/'$file_name'.cpp'
-    $replace -i "s/Year/$year/g" $dir'/'$file_name'.cpp'
-    $replace -i "s/Name/$name/g" $dir'/'$file_name'.cpp'
-	$replace -i "s/Company/$company/g" $dir'/'$file_name'.cpp'
-	$replace -i "s/filename/$file_name/g" $dir'/'$file_name'.cpp'
+	$replace -i '' -e "s/Day/$day/g" $dir'/'$file_name'.cpp' 
+    $replace -i '' -e "s/Month/$month/g" $dir'/'$file_name'.cpp'
+    $replace -i '' -e "s/Year/$year/g" $dir'/'$file_name'.cpp'
+    $replace -i '' -e "s/Name/$name/g" $dir'/'$file_name'.cpp'
+	$replace -i '' -e "s/Company/$company/g" $dir'/'$file_name'.cpp'
+	$replace -i '' -e "s/filename/$file_name/g" $dir'/'$file_name'.cpp'
 elif [[ $language == "C++_Lib" ]] then
 	echo "Enter the library name"
 	read file_name
     $make_dir $dir'/'$file_name
 	$copy $cpp_dir'CMake2.txt' $dir'/'$file_name'/CMakeLists.txt'
 
-	$replace -i "s/prjct_name/$file_name/g" $dir'/'$file_name'/CMakeLists.txt'
-    $replace -i "s/Name/$name/g" $dir'/'$file_name'/CMakeLists.txt'
-    $replace -i "s/Day/$day/g" $dir'/'$file_name'/CMakeLists.txt'
-    $replace -i "s/Month/$month/g" $dir'/'$file_name'/CMakeLists.txt'
-    $replace -i "s/Year/$year/g" $dir'/'$file_name'/CMakeLists.txt'
-    $replace -i "s/Company/$company/g" $dir'/'$file_name'/CMakeLists.txt'
+	$replace -i '' -e "s/prjct_name/$file_name/g" $dir'/'$file_name'/CMakeLists.txt'
+    $replace -i '' -e "s/Name/$name/g" $dir'/'$file_name'/CMakeLists.txt'
+    $replace -i '' -e "s/Day/$day/g" $dir'/'$file_name'/CMakeLists.txt'
+    $replace -i '' -e "s/Month/$month/g" $dir'/'$file_name'/CMakeLists.txt'
+    $replace -i '' -e "s/Year/$year/g" $dir'/'$file_name'/CMakeLists.txt'
+    $replace -i '' -e "s/Company/$company/g" $dir'/'$file_name'/CMakeLists.txt'
 elif [[ $language == "C_Lib" ]] then
 	echo "Enter the library name"
 	read file_name
     $make_dir $dir'/'$file_name
 	$copy $c_dir'CMake2.txt' $dir'/'$file_name'/CMakeLists.txt'
 
-	$replace -i "s/prjct_name/$file_name/g" $dir'/'$file_name'/CMakeLists.txt'
-    $replace -i "s/Name/$name/g" $dir'/'$file_name'/CMakeLists.txt'
-    $replace -i "s/Day/$day/g" $dir'/'$file_name'/CMakeLists.txt'
-    $replace -i "s/Month/$month/g" $dir'/'$file_name'/CMakeLists.txt'
-    $replace -i "s/Year/$year/g" $dir'/'$file_name'/CMakeLists.txt'
-    $replace -i "s/Company/$company/g" $dir'/'$file_name'/CMakeLists.txt'
+	$replace -i '' -e "s/prjct_name/$file_name/g" $dir'/'$file_name'/CMakeLists.txt'
+    $replace -i '' -e "s/Name/$name/g" $dir'/'$file_name'/CMakeLists.txt'
+    $replace -i '' -e "s/Day/$day/g" $dir'/'$file_name'/CMakeLists.txt'
+    $replace -i '' -e "s/Month/$month/g" $dir'/'$file_name'/CMakeLists.txt'
+    $replace -i '' -e "s/Year/$year/g" $dir'/'$file_name'/CMakeLists.txt'
+    $replace -i '' -e "s/Company/$company/g" $dir'/'$file_name'/CMakeLists.txt'
 fi
 # ================================================================================
 # ================================================================================
