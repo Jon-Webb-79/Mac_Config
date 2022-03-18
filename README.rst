@@ -230,3 +230,25 @@ Install the platform for your board
 Verify that the board is installed
 
 ``% arduino-cli core list``
+
+Install AVR Support
+###################
+Install relevant packages.  This only applies if you plan to use standdardd C to write for
+Arduino boards.
+
+``% brew tap osx-cross/avr``
+
+``% brew install avr-gcc``
+
+``% brew install avrdude``
+
+Install Extra Codde Dev Packages
+################################
+
+``% brew install googletest``
+
+``% brew install cmake``
+
+``% brew install --cask visual-studio-code``
+
+
