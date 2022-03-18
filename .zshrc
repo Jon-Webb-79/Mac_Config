@@ -14,7 +14,7 @@
 # ================================================================================
 # Basic input
 
-PATH='/bin/:/usr/bin/:/usr/local/bin/'
+PATH='/usr/local/bin/:/usr/local/sbin/:/bin/:/usr/bin/'
 export PATH
 # --------------------------------------------------------------------------------
 # The following lines were added by compinstall
