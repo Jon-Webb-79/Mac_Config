@@ -163,7 +163,7 @@ The Apple version of bash is very old.  Upgrade to a new version and change to t
 
 ``% sudo chsh -s /usr/local/bin/bash $(whoami)``
 
-Move the ``c_files``, ``c++_files``, ``bash_files`` and ``py_files`` directories
+Move the ``c_files``, ``c++_files``, ``bash_scripts`` and ``py_files`` directories
 from the cloned copy into the ``.config`` directory.  Next move the ``.bash_profile``
 and ``.bashrc`` files from the cloned copy to the home directory.  Close the terminal
 andd re-open.  If the files are working correctly there should be no errors and
@@ -171,3 +171,14 @@ the powerline status bar should appear at the bottom of the terminal.
 
 Zsh
 ###
+If you are logged into a Bash terminal change to a Zsh terminal with the following command;
+
+``% sudo -s /bin/zsh``
+
+Exit the terminal and reopen into a Z shell.
+
+Move the ``c_files``, ``c++_files``, ``zsh_scripts`` and ``py_files`` directories
+from the cloned copy into the ``.config`` directory.  Next move the ``.zsh_profile``
+and ``.zshrc`` files from the cloned copy to the home directory.  Close the terminal
+andd re-open.  If the files are working correctly there should be no errors and
+the powerline status bar should appear at the bottom of the terminal.
