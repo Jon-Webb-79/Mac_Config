@@ -253,6 +253,16 @@ Install Extra Codde Dev Packages
 
 ``% brew install --cask visual-studio-code``
 
+Install Poetry for Python
+#########################
+Install the Poetry package manager for Python
+
+``$ curl -sSL https://install.python-poetry.org | python3 -`` 
+
+Set virtual environment installs to local package
+
+``$ poetry config virtualenvs.in-project true``
+
 Backup
 ######
 
