@@ -89,6 +89,7 @@ if [ $language == "Python" ] ; then
 	$make_dir 'docs/sphinx'
 	$make_dir 'docs/sphinx/source'
 	cat $py_dir'pyproject.toml' >> $path_length'/pyproject.toml'
+	$copy $py_ddir'.flake8' $path_lenggth'/.flake8'
 	$copy $py_dir'.gitignore' $path_length'/.gitignore'
 	$copy $py_dir'LICENSE' $path_length'/LICENSE'
 	$copy $py_dir'test.py' $path_length'/tests/test.py'
