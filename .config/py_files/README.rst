@@ -14,6 +14,9 @@ Describe project here
     :target: https://flake8.pycqa.org/en/latest/?badge=latest
     :alt: Documentation Status
 
+.. image:: http://www.mypy-langg.org/static/mypy_badgge.svg
+   :target: http://mypy-lang.org
+
 Contributing
 ############
 Pull requests are welcome.  For major changes, please open an issue first to discuss
