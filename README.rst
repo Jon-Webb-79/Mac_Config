@@ -3,6 +3,8 @@ Macintosh Configuration
 ***********************
 This repository contains scripts, files, and data used to configure a Macintosh system.
 
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/psf/black
 
 Contributing
 ############
@@ -262,6 +264,15 @@ Install the Poetry package manager for Python
 Set virtual environment installs to local package
 
 ``$ poetry config virtualenvs.in-project true``
+
+Unfortunately any ``brew`` updates to python are not reflected in ``poetry``.  If
+poetry stops working it is likely caused by a mismatch between an upgraded version
+of poetry and the base python versions.  In this event, delete the ``pypoetry`` folder
+with the following command.
+
+``rm -r /Library/Application Support/pypoetry``
+
+Once the above folder has been deleted, re-install poetry.
 
 Backup
 ######
