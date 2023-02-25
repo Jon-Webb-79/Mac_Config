@@ -34,11 +34,17 @@ exclude = '''
 [tool.tox]
 legacy_tox_ini = """
 	[tox]
-	env_list = py310, mypy, flake8
+	env_list = py310, mypy, flake8, coverage
 
 	[testenv]
+	description = Conduct tests with pytest
 	deps = pytest
 	commands = pytest tests
+
+	[testenv:coverage]
+	deps = pytest-cov
+	commands = 
+		pytest --cov --cov-report term-missing --cov-report html --cov-append --cov-context=test --cov-fail-under=100 {posargs}
 
 	[testenv:mypy]
 	deps = mypy
