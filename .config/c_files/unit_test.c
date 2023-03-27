@@ -1,8 +1,7 @@
 // ================================================================================
 // ================================================================================
-// - File>    filename.cpp
-// - Purpose: This file implements google test as a method to test c code.
-//            Describe the type of testing to be completed
+// - File:    unit_test.c
+// - Purpose: Describe the file purpose here
 //
 // Source Metadata
 // - Author:  Name
@@ -11,19 +10,23 @@
 // - Copyright: Copyright Year, Company Inc.
 // ================================================================================
 // ================================================================================
-// - Begin test
+// Include modules here
 
-#include <gtest/gtest.h>
+#include <stdio.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <setjmp.h>
+#include <stdint.h>
+#include <cmocka.h>
 
-extern "C" {
-#include "test_file.h"
-}
+#include "test.h"
 
-TEST(test_suite_name, test_name) {
-	// Expect two strings not to be equal.
-	EXPECT_STRNE("hello", "world");
-	// Expect equality.
-	EXPECT_EQ(7 * 6, 42);
+// Begin code
+int main(int argc, const char * argv[]) {
+	const struct CMUnitTest test_one[] = {
+		cmocka_unit_test(test_funct)
+	};
+	return cmocka_run_group_tests(test_one, NULL, NULL);
 }
 // ================================================================================
 // ================================================================================

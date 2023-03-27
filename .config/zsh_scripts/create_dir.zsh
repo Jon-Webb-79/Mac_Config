@@ -179,15 +179,35 @@ if [[ $language == "C" ]] then
 	$replace -i '' -e "s/Company/$company/g" $path_length'/'$project_name'/main.c'
     $replace -i '' -e "s/filename/main/g" $path_length'/'$project_name'/main.c'
 
-    $copy -i $c_dir'test.cpp' $path_length'/'$project_name'/test/test.cpp'
+    $copy -i $c_dir'test.c' $path_length'/'$project_name'/test/test.c'
 
-	$replace -i '' -e "s/Day/$day/g" $path_length'/'$project_name'/test/test.cpp'
-	$replace -i '' -e "s/Month/$month/g" $path_length'/'$project_name'/test/test.cpp'
-	$replace -i '' -e "s/Year/$year/g" $path_length'/'$project_name'/test/test.cpp'
-	$replace -i '' -e "s/Company/$company/g" $path_length'/'$project_name'/test/test.cpp'
-	$replace -i '' -e "s/file_name/test/g" $path_length'/'$project_name'/test/test.cpp'
-	$replace -i '' -e "s/Name/$name/g" $path_length'/'$project_name'/test/test.cpp'
-    $replace -i '' -e "s/filename/test/g" $path_length'/'$project_name'/test/test.cpp'
+	$replace -i '' -e "s/Day/$day/g" $path_length'/'$project_name'/test/test.c'
+	$replace -i '' -e "s/Month/$month/g" $path_length'/'$project_name'/test/test.c'
+	$replace -i '' -e "s/Year/$year/g" $path_length'/'$project_name'/test/test.c'
+	$replace -i '' -e "s/Company/$company/g" $path_length'/'$project_name'/test/test.c'
+	$replace -i '' -e "s/file_name/test/g" $path_length'/'$project_name'/test/test.c'
+	$replace -i '' -e "s/Name/$name/g" $path_length'/'$project_name'/test/test.c'
+    $replace -i '' -e "s/filename/test/g" $path_length'/'$project_name'/test/test.c'
+
+	$copy -i $c_dir'test.h' $path_length'/'$project_name'/test/test.h'
+
+	$replace -i '' -e "s/Day/$day/g" $path_length'/'$project_name'/test/test.h'
+	$replace -i '' -e "s/Month/$month/g" $path_length'/'$project_name'/test/test.h'
+	$replace -i '' -e "s/Year/$year/g" $path_length'/'$project_name'/test/test.h'
+	$replace -i '' -e "s/Company/$company/g" $path_length'/'$project_name'/test/test.h'
+	$replace -i '' -e "s/file_name/test/g" $path_length'/'$project_name'/test/test.h'
+	$replace -i '' -e "s/Name/$name/g" $path_length'/'$project_name'/test/test.h'
+    $replace -i '' -e "s/filename/test/g" $path_length'/'$project_name'/test/test.h'
+
+	$copy -i $c_dir'unit_test.c' $path_length'/'$project_name'/test/unit_test.c'
+
+	$replace -i '' -e "s/Day/$day/g" $path_length'/'$project_name'/test/unit_test.c'
+	$replace -i '' -e "s/Month/$month/g" $path_length'/'$project_name'/test/unit_test.c'
+	$replace -i '' -e "s/Year/$year/g" $path_length'/'$project_name'/test/unit_test.c'
+	$replace -i '' -e "s/Company/$company/g" $path_length'/'$project_name'/test/unit_test.c'
+	$replace -i '' -e "s/file_name/test/g" $path_length'/'$project_name'/test/unit_test.c'
+	$replace -i '' -e "s/Name/$name/g" $path_length'/'$project_name'/test/unit_test.c'
+    $replace -i '' -e "s/filename/test/g" $path_length'/'$project_name'/test/unit_test.c'
 
     $replace -i '' -e "s/Name/$name/g" $path_length'/'$project_name'/CMakeLists.txt'
     $replace -i '' -e "s/Month/$month/g" $path_length'/'$project_name'/CMakeLists.txt'

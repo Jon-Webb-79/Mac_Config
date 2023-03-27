@@ -109,14 +109,24 @@ elif [ $language == "C++" ] ; then
 elif [ $language == "C_Test" ] ; then
 	echo "Enter the filename without the .cpp extension"
 	read file_name
-	$copy $c_dir'test.cpp' $dir'/'$file_name'.cpp'
+	$copy $c_dir'test.c' $dir'/'$file_name'.c'
     
-	$replace -i '' -e "s/Day/$day/g" $dir'/'$file_name'.cpp' 
-    $replace -i '' -e "s/Month/$month/g" $dir'/'$file_name'.cpp'
-    $replace -i '' -e "s/Year/$year/g" $dir'/'$file_name'.cpp'
-    $replace -i '' -e "s/Name/$name/g" $dir'/'$file_name'.cpp'
-	$replace -i '' -e "s/Company/$company/g" $dir'/'$file_name'.cpp'
-	$replace -i '' -e "s/filename/$file_name/g" $dir'/'$file_name'.cpp'
+	$replace -i '' -e "s/Day/$day/g" $dir'/'$file_name'.c' 
+    $replace -i '' -e "s/Month/$month/g" $dir'/'$file_name'.c'
+    $replace -i '' -e "s/Year/$year/g" $dir'/'$file_name'.c'
+    $replace -i '' -e "s/Name/$name/g" $dir'/'$file_name'.c'
+	$replace -i '' -e "s/Company/$company/g" $dir'/'$file_name'.c'
+	$replace -i '' -e "s/filename/$file_name/g" $dir'/'$file_name'.c'
+
+	$copy $c_dir'test.h' $dir'/'$file_name'.h'
+    
+	$replace -i '' -e "s/Day/$day/g" $dir'/'$file_name'.h' 
+    $replace -i '' -e "s/Month/$month/g" $dir'/'$file_name'.h'
+    $replace -i '' -e "s/Year/$year/g" $dir'/'$file_name'.h'
+    $replace -i '' -e "s/Name/$name/g" $dir'/'$file_name'.h'
+	$replace -i '' -e "s/Company/$company/g" $dir'/'$file_name'.h'
+	$replace -i '' -e "s/filename/$file_name/g" $dir'/'$file_name'.h'
+
 elif [ $language == "C++_Test" ] ; then
 	echo "Enter the filename without the .cpp extension"
 	read file_name
