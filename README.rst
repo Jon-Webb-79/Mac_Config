@@ -255,6 +255,8 @@ Install Extra Codde Dev Packages
 
 ``% brew install --cask visual-studio-code``
 
+``% brew install cmocka``
+
 Install Poetry for Python
 #########################
 Install the Poetry package manager for Python
