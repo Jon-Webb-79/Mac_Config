@@ -30,6 +30,9 @@ set(CMAKE_C_FLAGS "-Wall -Werror -Wpedantic -std=c11")
 # Specify directory where the executable is stored
 # set(CMAKE_CURRENT_BINARY_DIR "bin")
 
+include_directories(/usr/local/Cellar/cmocka/1.1.7/include/)
+link_directories(/usr/local/lib)
+
 # Add subdirectories
 add_subdirectory(include)
 
