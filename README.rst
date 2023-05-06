@@ -66,8 +66,7 @@ Navigate to your home directory.  Install NeoVim with the following command
 
 Install and configure related packages with the following commands
 
-``% curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim``
+``% curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim``
 ``% brew install npm``
 
 ``% brew install node``
