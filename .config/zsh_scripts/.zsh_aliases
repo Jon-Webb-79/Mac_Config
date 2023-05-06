@@ -40,7 +40,6 @@ alias cdnvim='cd ~/.config/nvim'
 # --------------------------------------------------------------------------------
 # Commands to display relevant file information
 
-alias open='xdg-open'
 alias paths='echo -e ${PATH//:/\\n}'        # Display all PATHS
 alias execs='type -all'                     # Display all executables below directory
 alias show_options='shopt'                  # Display all option status
