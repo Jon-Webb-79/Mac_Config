@@ -151,7 +151,7 @@ If it is working, then type the following command to exit the tmux session.
 
 Clone the pluggin manager
 
-``% git clone https://github.com/tmux-plugins/tpm/tpm ~/.tmux/plugins/tpm``
+``% git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm``
 
 Move the ``.tmux.conf`` file from the cloned directory to the users
 home directory.  Open a tmux session and type ``Control-A-I`` to install
