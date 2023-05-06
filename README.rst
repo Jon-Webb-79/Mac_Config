@@ -161,17 +161,26 @@ all plugins.
 
 Bash
 ####
-The Apple version of bash is very old.  Upgrade to a new version and change to that shell
+Apple no longer uses Bash as the default terminal application.  As a result
+the Apple version of bash is very old.  In oder to upgrade to a newer
+version of bash, type in and enter the following command to your terminal.
 
 ``% brew install bash``
 
-``% sudo chsh -s /usr/local/bin/bash $(whoami)``
+The default version of bash is installed to ``/usr/local/bin/bash``;
+however,  the new version will be installed to ``/opt/homebrew/bin/bash``. 
+Next, we will change from the default zshell to bash with the folllowing command.
+
+``% sudo chsh -s /opt/homebrew/bin/bash $(whoami)``
 
 Move the ``c_files``, ``c++_files``, ``bash_scripts`` and ``py_files`` directories
 from the cloned copy into the ``.config`` directory.  Next move the ``.bash_profile``
 and ``.bashrc`` files from the cloned copy to the home directory.  Close the terminal
 andd re-open.  If the files are working correctly there should be no errors and
-the powerline status bar should appear at the bottom of the terminal.
+the powerline status bar should appear at the bottom of the terminal.  If the powerline
+status bar is not displayed, or you recieve a warnging, this is likely caused by
+an error in the ``PATH`` on line 22, or the powerline source entered on line 44 of the
+``.bashrc`` file.
 
 Zsh
 ###
@@ -184,10 +193,13 @@ Exit the terminal and reopen into a Z shell.
 Move the ``c_files``, ``c++_files``, ``zsh_scripts`` and ``py_files`` directories
 from the cloned copy into the ``.config`` directory.  Next move the ``.zsh_profile``
 and ``.zshrc`` files from the cloned copy to the home directory.  Close the terminal
-andd re-open.  If the files are working correctly there should be no errors and
-the powerline status bar should appear at the bottom of the terminal.  Close the terminal
-and re-open.  If the terminal has no errors and a powerline status bar, then the install
-was successful.
+andd re-open.  If the files were properly transferred, when you open up the terminal
+the powerline status display should be present.  However, it is likely that the user
+will see several warnings displayed.  THis is likely due to the fact that the the plugins
+entered on lines 53 to 65 of the ``.zshrc`` file have not been downloaded.  If this is
+the case navigate to the ``~/home/.local/zsh_scripts/plugins`` directory.  Clear
+any directories that may be in there, and follow the git clone instructions
+on lines 57, 61, and 65 of the .zshrc file.
 
 Install Misc.Tools
 ##################
