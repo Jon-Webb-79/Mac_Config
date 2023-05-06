@@ -19,8 +19,9 @@
 # ================================================================================
 # Set the path
 
-PATH='/usr/local/bin/:/usr/local/sbin/:/bin/:/usr/bin/'
+PATH='/opt/homebrew/bin:/usr/local/bin/:/usr/local/sbin/:/bin/:/usr/bin/'
 export PATH
+
 # ================================================================================
 # Increase the Stack Size
 ulimit -S -s hard
@@ -36,11 +37,11 @@ export LSCOLORS=GxFxCxDxBxgedahagacedd
 # --------------------------------------------------------------------------------
 # Install Powerline-status
 
-
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-source /usr/local/lib/python3.10/site-packages/powerline/bindings/bash/powerline.sh
+#export PATH="/opt/homebrew/lib/python3.11/site-packages/powerline/bindings/bash:$PATH"
+source /opt/homebrew/lib/python3.11/site-packages/powerline/bindings/bash/powerline.sh
 # --------------------------------------------------------------------------------
 
 shopt -s cdspell

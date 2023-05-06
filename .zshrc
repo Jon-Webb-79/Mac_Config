@@ -14,7 +14,7 @@
 # ================================================================================
 # Basic input
 
-PATH='/usr/local/bin/:/usr/local/sbin/:/bin/:/usr/bin/'
+PATH='/opt/homebrew/bin:/usr/local/bin/:/usr/local/sbin/:/bin/:/usr/bin/:/Users/jonwebb/.local/bin'
 export PATH
 # --------------------------------------------------------------------------------
 # The following lines were added by compinstall
@@ -45,9 +45,10 @@ export LSCOLORS=GxFxCxDxBxgedahagacedd
 # --------------------------------------------------------------------------------
 # Install powerline status
 #
+powerline-daemon -q
 POWERLINE_ZSH_CONTINUATION=1
 POWERLINE_ZSH_SELECT=1
-source /usr/local/lib/python3.10/site-packages/powerline/bindings/zsh/powerline.zsh
+source /opt/homebrew/lib/python3.11/site-packages/powerline/bindings/zsh/powerline.zsh
 # --------------------------------------------------------------------------------
 # Install plugins
 
@@ -70,10 +71,6 @@ source ~/.config/zsh_scripts/.zsh_aliases
 
 # git aliases
 source ~/.config/zsh_scripts/.zsh_git_aliases
-# ================================================================================
-# ================================================================================
-# eof
-
 # ================================================================================
 # ================================================================================
 # eof
