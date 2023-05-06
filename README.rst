@@ -54,7 +54,7 @@ by pairing tmux with the native Terminal application.  For this reason we will n
 using ITerm2.  However, if a user decides to use this application, it can be downloaded
 with the following command;
 
-``% brew cask install iterm2``
+``% brew install --cask iterm2``
 
 The above command should install the ITerm2 executable to the ``Downloads`` directory.  The
 user should move the executable to the ``Applications`` directory at which point it
