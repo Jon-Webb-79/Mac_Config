@@ -73,7 +73,10 @@ Install and configure related packages with the following commands
 
 ``% brew install python@3.XX``
 
-In the above command, ``XX`` designates whatever version of Python you want to download
+In the above command, ``XX`` designates whatever version of Python you want to download.
+Currently, this will install to the ``/opt/homebrew/bin/`` directory.  However, this
+can change, so please check which directory it is installed to with the ``which python3``
+command.  You will need this information later in the installation process.
 
 ``% pip3 install powerline-status``
 
