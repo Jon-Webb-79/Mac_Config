@@ -26,6 +26,8 @@ In order to download this repository from GitHub, follow these instructions;
 3. At your desired location create a directory titled ``Mac_Config``.  While the
    user can place this directory anywhere, it is recommended that it be placed in the
    users home directory .
+4. If you do not have git installed, then do so with the command
+   ``brew install git``
 4. Open a terminal (bash, zsh) and cd to the ``Mac_Config`` directory and type
    ``clone https://github.com/Jon-Webb-79/Mac_Config.git Mac_Config``
 
@@ -56,13 +58,9 @@ with the following command;
 
 ``% brew install --cask iterm2``
 
-The above command should install the ITerm2 executable to the ``Downloads`` directory.  The
-user should move the executable to the ``Applications`` directory at which point it
-is ready for use.
-
 NeoVim
 ******
-Install NeoVim with the following command
+Navigate to your home directory.  Install NeoVim with the following command
 
 ``% brew install neovim``
 
@@ -72,9 +70,11 @@ Install and configure related packages with the following commands
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim``
 ``% brew install npm``
 
-``% brew install nodejs``
+``% brew install node``
 
 ``% brew install python@3.XX``
+
+In the above command, ``XX`` designates whatever version of Python you want to download
 
 ``% pip3 install powerline-status``
 
@@ -84,7 +84,7 @@ Install Powerline fonts by cd'ing to your home directory and running the followi
 
 ``% git clone https://github/powerline/fonts.git --depth=1``
 
-Then install the powerline fonts
+Then install the powerline fonts.  First navigate the the fonts directory you just created.
 
 ``% ./install.sh``
 
