@@ -19,7 +19,7 @@
 # ================================================================================
 # Set the path
 
-PATH='/opt/homebrew/bin:/usr/local/bin/:/usr/local/sbin/:/bin/:/usr/bin/'
+PATH='/opt/homebrew/bin:/usr/local/bin/:/usr/local/sbin/:/bin/:/usr/bin/:/usr/sbin'
 export PATH
 
 # ================================================================================

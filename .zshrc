@@ -14,7 +14,7 @@
 # ================================================================================
 # Basic input
 
-PATH='/opt/homebrew/bin:/usr/local/bin/:/usr/local/sbin/:/bin/:/usr/bin/:/Users/jonwebb/.local/bin'
+PATH='/opt/homebrew/bin:/usr/local/bin/:/usr/local/sbin/:/bin/:/usr/bin/:/Users/jonwebb/.local/bin:/usr/sbin'
 export PATH
 # --------------------------------------------------------------------------------
 # The following lines were added by compinstall
