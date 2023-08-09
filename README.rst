@@ -290,6 +290,19 @@ with the following command.
 
 Once the above folder has been deleted, re-install poetry.
 
+Install MySQL
+#############
+#. TBD
+
+Install PostGreSQL
+##################
+#. Install with homebrew ``brew install postgresql``
+#. start service ``brew services start postgresq``
+#. Login to postgresql ``psql postgresq``
+#. Create role ``CREATE ROLE username WITH LOGIN PASSWORD 'password';``
+#. alter role ``ALTER ROLE username ROLES;`` where ``ROLES`` could be
+   ``CREATEDB, SUPERUSER, CREATEROLE, REPLICATION, BYPASS RLS`` etc.
+
 Backup
 ######
 
