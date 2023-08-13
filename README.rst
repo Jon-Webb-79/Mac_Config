@@ -303,6 +303,35 @@ Install PostGreSQL
 #. alter role ``ALTER ROLE username ROLES;`` where ``ROLES`` could be
    ``CREATEDB, SUPERUSER, CREATEROLE, REPLICATION, BYPASS RLS`` etc.
 
+Install SQL-Server
+##################
+#. Install docker.
+    #. Navigate to the docker website :ref:`Docker <https://docs.docker.com/desktop/install/mac-install/>`_
+    #. Click the install for the correct chip type.
+    #. Once downloaded move the docker icon to the Applications folder.
+    #. Open docker and configure with standard settings.
+    #. Sign up for docker service if you have not already done so.
+    #. Click on the settings icon and navigate to advanced.
+    #. In the advanced settings, ensure 4 GB of memory is allocated
+#. Install Azure Data Studio
+    #. Navigate to this web site :ref:`Azure <https://learn.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver16&tabs=redhat-install%2Credhat-uninstall>`_
+    #. Click on the MacOS zip file for the correct chip type.
+    #. This automatically installs to the Download folder.  Move it to applications once the download is finished.
+# Downlaod the MS SQL Container Image
+    #. Navigate to :ref:`Azure <https://hub.docker.com>`_
+    #. Type ``azure sql edge`` into the docker hub search bar.
+    #. FInd and click on the azuer sql edge icon supplied by Microsoft.
+    #. Find the termal command on the top right f screen.  Copy the command and pase into terminal.
+    #. Once command is complete, you should be able to see the image in docker in the images tab
+#. Run the SQL image in a container
+    #. While inserting an appropriate password Run this command ``docker run --cap-add SYS_PTRACE -e 'ACCEPT_EULA=1' -e 'MSSQL_SA_PASSWORD=yourStrong(!)Password' -e 'MSSQL_PID=Developer' -p 1433:1433 --name azuresqledge -d mcr.microsoft.com/azure-sql-edge`` 
+    #. If executed correctly then the Docker image should show that it is in use.
+#. Connect Azuer Data Studio to database
+    #. Open Azure Data studio
+    #. Click on Create a connection
+    #. Set user to sa and fill out other information. Also set server to localhost for local operations.
+    #. Also set Authentical to SQL Login and click connect
+
 Backup
 ######
 
