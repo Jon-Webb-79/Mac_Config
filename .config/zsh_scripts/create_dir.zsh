@@ -103,6 +103,9 @@ if [[ $language == "Python" ]] then
 	$copy $py_dir'sphinx_make' $path_length'/docs/sphinx/Makefile'
 	$copy $py_dir'conf.py' $path_length'/docs/sphinx/source/conf.py'
 	$copy $py_dir'index.rst' $path_length'/docs/sphinx/source/index.rst'
+    $copy $py_dir'module.rst' $path_length'/docs/sphinx/source/module.rst'
+	$copy $py_dir'conf.py' $path_length'/docs/sphinx/source/conf.py'
+	$copy $py_dir'index.rst' $path_length'/docs/sphinx/source/index.rst'
     $copy $py_dir'Introduction.rst' $path_length'/docs/sphinx/source/Introduction.rst'
 	$copy $py_dir'sphinx_readme.txt' $path_length'/docs/sphinx/readme.txt'
 	$copy $py_dir'Makefile' $path_length'/Makefile'
@@ -155,6 +158,13 @@ if [[ $language != "Python" ]] then
 	$make_dir 'docs/requirements'
 	$copy $c_dir'Doxyfile' $path_length'/docs/doxygen/Doxygen'
 	$copy $c_dir'mainpage.dox' $path_length'/docs/doxygen/mainpage.dox'
+	$copy $c_dir'.readthedocs.yaml' $path_length'/docs/doxygen/.readthedocs.yaml'
+	$copy $c_dir'sphinx_readme.txt' $path_length'/docs/doxygen/readme.txt'
+	$copy $c_dir'index.rst' $path_length'/docs/doxygen/sphinx_docs/index.rst'
+	$copy $c_dir'module.rst' $path_length'/docs/doxygen/sphinx_docs/module.rst'
+	python -m venv $path_length'/docs/doxygen/.venv'
+	source $path_length'/docs/doxygen/.venv/bin/activate'
+	pip install sphinx-rtd-theme
 fi
 # --------------------------------------------------------------------------------
 # C Specific files and directories
