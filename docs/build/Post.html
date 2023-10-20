@@ -19,6 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Database Installations" href="DB.html" />
     <link rel="prev" title="Arch Linux Installation for Jon Webb!" href="index.html" /> 
 </head>
 
@@ -46,9 +47,22 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Package Installations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#brew">Brew</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#git">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-mac-config">Download Mac_Config</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#iterm2">ITerm2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-powerline-fonts">Install Powerline Fonts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#neovim">NeoVim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-tmux">Install tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-bash">Install Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-zshell">Install ZShell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-misc-tools">Install Misc Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-python">Install Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instal-general-software-development-packages">Instal General Software Development Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-arduino-if-it-a-required-package">Install Arduino if it a required package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#backup">Backup</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="DB.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Trouble.html">Troubleshooting</a></li>
 </ul>
 
         </div>
@@ -134,6 +148,14 @@ permissions by tpying the following command into the terminal.</p>
 </li>
 </ol>
 </section>
+<section id="download-mac-config">
+<h2>Download Mac_Config<a class="headerlink" href="#download-mac-config" title="Link to this heading"></a></h2>
+<p>Download configuration files for Macintosh from github.  This command
+will download the file to your home directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Jon-Webb-79/Mac_Config.git<span class="w"> </span>~/Mac_Config
+</pre></div>
+</div>
+</section>
 <section id="iterm2">
 <h2>ITerm2<a class="headerlink" href="#iterm2" title="Link to this heading"></a></h2>
 <p>The out of the box Desktop Environment comes pre-installed with a Terminal.
@@ -147,6 +169,260 @@ functionality.  Download <code class="docutils literal notranslate"><span class=
 the reader can continue to use the out of hte box Terminal, I recommend
 switching to <code class="docutils literal notranslate"><span class="pre">ITerm2</span></code> for all future terminal commands.</p>
 </section>
+<section id="install-powerline-fonts">
+<h2>Install Powerline Fonts<a class="headerlink" href="#install-powerline-fonts" title="Link to this heading"></a></h2>
+<p>This step is necessary to install fonts that will be useful for powerline
+status bars.</p>
+<ol class="arabic">
+<li><p>Download the fonts repository</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/powerline/fonts.git<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install fonts</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>fonts
+./install.sh
+</pre></div>
+</div>
+</li>
+<li><p>Cleanup unused fonts</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>..
+rm<span class="w"> </span>-rf<span class="w"> </span>fonts
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="neovim">
+<h2>NeoVim<a class="headerlink" href="#neovim" title="Link to this heading"></a></h2>
+<p>Next we will install and configure NeoVim.</p>
+<ol class="arabic">
+<li><p>Install NeoVim from brew</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>neovim
+</pre></div>
+</div>
+</li>
+<li><p>Install the Packer NeoVim package manager from git</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span><span class="w"> </span>https://github.com/wbthomason/packer.nvim<span class="se">\</span>
+~/.local/share/nvim/site/pack/packer/start/packer.nvim
+</pre></div>
+</div>
+</li>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">nvim</span></code> directory in your <code class="docutils literal notranslate"><span class="pre">.config</span></code> directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>~/.config/nvim
+</pre></div>
+</div>
+</li>
+<li><p>Move the <code class="docutils literal notranslate"><span class="pre">nvim</span></code> configuration file from the <code class="docutils literal notranslate"><span class="pre">Mac_Config</span></code> directory
+to your <code class="docutils literal notranslate"><span class="pre">nvim</span></code> directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>-r<span class="w"> </span>~/Mac_Config/.config/nvim<span class="w"> </span>~/.config/nvim/
+</pre></div>
+</div>
+</li>
+<li><p>Temporarily move the <code class="docutils literal notranslate"><span class="pre">.config/nvim/after</span></code> directory to the Desktop
+so it does not interfere with the package download process.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mv<span class="w"> </span>~/.config/nvim/after<span class="w"> </span>~/Desktop/
+</pre></div>
+</div>
+</li>
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">packer.lua</span></code> file with neovim</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nvim<span class="w"> </span>~/.config/nvim/lua/core/packer.lua
+</pre></div>
+</div>
+</li>
+<li><p>From within NeoVim download all packages by depressing the <code class="docutils literal notranslate"><span class="pre">:</span></code> key
+and then typing <code class="docutils literal notranslate"><span class="pre">PackerSync</span></code>.  The bottom of the NeoVim window should
+look like this, then press enter.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>:PackerSync
+</pre></div>
+</div>
+</li>
+<li><p>Now that all packages are downloaded, move teh <code class="docutils literal notranslate"><span class="pre">after</span></code> directory back to
+the <code class="docutils literal notranslate"><span class="pre">nvim</span></code> directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mv<span class="w"> </span>~/Desktop/after<span class="w"> </span>~/.config/nvim/
+</pre></div>
+</div>
+</li>
+<li><p>Open up a file with NeoVim and ensure that it is performing correctly.
+While this should provide you a working version of NeoVim, I encourage
+you to review all of the files in the <code class="docutils literal notranslate"><span class="pre">nvim</span></code> directory to understand
+how they work together and also you should explore other packages that
+may customize NeoVim better for you.</p></li>
+<li><p>At this point the scrolling rate in neovim may be slow.  To fix this
+got to Settings-&gt;Keyboard and set the Key Repeat rate to the maximum
+value.</p></li>
+</ol>
+</section>
+<section id="install-tmux">
+<h2>Install tmux<a class="headerlink" href="#install-tmux" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Install tmux with the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>tmux
+</pre></div>
+</div>
+</li>
+<li><p>Once tmux has been installed, check to see that it is working properly
+by typing tmux.  If it is working properly, kill the session and exit
+by typing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tmux<span class="w"> </span>kill-session
+</pre></div>
+</div>
+</li>
+<li><p>Clone the plugin manager.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tmux-plugins/tpm<span class="w"> </span>~/.tmux/plugins/tpm/
+</pre></div>
+</div>
+</li>
+<li><p>Move the <code class="docutils literal notranslate"><span class="pre">tmux.conf</span></code> file from the cloned directory to the home directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>~/Mac_Config/tmux.conf<span class="w"> </span>~/tmux.conf
+</pre></div>
+</div>
+</li>
+<li><p>Open tmux and type <code class="docutils literal notranslate"><span class="pre">Control-A-I</span></code> to install all plugins</p></li>
+</ol>
+</section>
+<section id="install-bash">
+<h2>Install Bash<a class="headerlink" href="#install-bash" title="Link to this heading"></a></h2>
+<p>Bash used to be the default shell environment for Macintosh window but
+still can be used as the backup shell.  In this section we will install
+all Bash schell scripts to run a bash environment in a Macintosh computer.</p>
+<ol class="arabic">
+<li><p>Install bash.  <strong>NOTE:</strong> Bash is already installed, but it is likely an
+outdated version.  This step will install a more up to date bash shell.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>bash
+</pre></div>
+</div>
+<p>The default Bash is installed to <code class="docutils literal notranslate"><span class="pre">/usr/local/bin/bash</span></code>; however, the
+version you just installed is located at <code class="docutils literal notranslate"><span class="pre">/opt/homebrew/bin/bash</span></code>.</p>
+</li>
+<li><p>Change the default shell to bash.  <strong>NOTE:</strong> We will change this back to
+zshell shortly.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>chsh<span class="w"> </span>-s<span class="w"> </span>/opt/homebrew/bin/bash<span class="w"> </span><span class="k">$(</span>wwhoami<span class="k">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Move the <code class="docutils literal notranslate"><span class="pre">c_files</span></code>, <code class="docutils literal notranslate"><span class="pre">c++_files</span></code>, <code class="docutils literal notranslate"><span class="pre">bash_scripts</span></code> and <code class="docutils literal notranslate"><span class="pre">py_files</span></code>
+directories from the <code class="docutils literal notranslate"><span class="pre">Mac_Config</span></code> directory to the <code class="docutils literal notranslate"><span class="pre">.config</span></code>
+directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>-r<span class="w"> </span>~/Mac_Config/.config/c_files<span class="w"> </span>~/.config/c_files
+cp<span class="w"> </span>-r<span class="w"> </span>~/Mac_Config/.config/c++_files<span class="w"> </span>~/.config/c++_files
+cp<span class="w"> </span>-r<span class="w"> </span>~/Mac_Config/.config/py_files<span class="w"> </span>~/.config/py_files/
+cp<span class="w"> </span>-r<span class="w"> </span>~/Mac_Config/.config/bash_scripts<span class="w"> </span>~/.config/bash_scripts
+</pre></div>
+</div>
+</li>
+<li><p>Move the bash config files to the home directory.  If you have a
+<code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> or <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> file, delete those before this step.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>~/Mac_Config/.config/.bashrc<span class="w"> </span>~/.bashrc
+cp<span class="w"> </span>~/Mac_Config/.config/.bash_profile<span class="w"> </span>~/.bash_profile
+</pre></div>
+</div>
+</li>
+<li><p>Refresh the terminal by closing it and re-opening it.  Once you reopen
+the terminal you should notive the powerline fonts on the botom of the
+terminal and a new color scheme.  If the icons are not properly showing
+in the terminal, you need to open the ITerm2 settings and change to a
+powerline font.</p></li>
+<li><p>Investigate the <code class="docutils literal notranslate"><span class="pre">~/.config/bash_scripts/.bash_alias</span></code> file.  This file
+contains several aliases that can be used to manage daily activities and
+code development environments.</p></li>
+</ol>
+</section>
+<section id="install-zshell">
+<h2>Install ZShell<a class="headerlink" href="#install-zshell" title="Link to this heading"></a></h2>
+<p>ZShell is now the standard shell environment for Macintosh computers, so
+it is likely that you are currently logged into zshell.  However, if you
+are not, and you are currently using a Bash terminal, switch to zshell
+with the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>-s<span class="w"> </span>/bin/zsh
+</pre></div>
+</div>
+<p>Exit the terminal and re-open into a zshell environment.</p>
+<p>When installing Bash we already moved the <code class="docutils literal notranslate"><span class="pre">c_files</span></code>, <code class="docutils literal notranslate"><span class="pre">c++_files</span></code>,
+<code class="docutils literal notranslate"><span class="pre">py_files</span></code>, and <code class="docutils literal notranslate"><span class="pre">bash_scripts</span></code> files from the <code class="docutils literal notranslate"><span class="pre">Mac_Config</span></code> directory
+to the <code class="docutils literal notranslate"><span class="pre">.config</span></code> directories.  Now lets move the <code class="docutils literal notranslate"><span class="pre">zsh_scripts</span></code>
+directory to the <code class="docutils literal notranslate"><span class="pre">.config</span></code> directory with the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>-r<span class="w"> </span>~/Mac_Config/.config/zsh_scripts<span class="w"> </span>~/.config/zsh_scripts
+</pre></div>
+</div>
+<p>Next, lets move the zsh config files to the home directory with the
+following commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>~/Mac_Config/.config/.zshrc<span class="w"> </span>~/.zshrc
+cp<span class="w"> </span>~/Mac_Config/.config/.zsh_profile<span class="w"> </span>~/.zsh_profile
+</pre></div>
+</div>
+<p>Now if you close the terminal and re-open it, you should be logged into
+a fully funcitonaing zshell terminal.  Take some time to log into the
+<code class="docutils literal notranslate"><span class="pre">~/.config/zsh_scripts</span></code> directory and view the <code class="docutils literal notranslate"><span class="pre">.zsh_aliases</span></code> file
+to understand the capabilities enabled in that file.</p>
+</section>
+<section id="install-misc-tools">
+<h2>Install Misc Tools<a class="headerlink" href="#install-misc-tools" title="Link to this heading"></a></h2>
+<p>Consider the installation of the following tools</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>isntall<span class="w"> </span>--cask<span class="w"> </span>google-earth-pro
+brew<span class="w"> </span>install<span class="w"> </span>htop
+brew<span class="w"> </span>install<span class="w"> </span>tree
+bre<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>textmate
+brew<span class="w"> </span>install<span class="w"> </span>rsync
+brew<span class="w"> </span>install<span class="w"> </span>neofetch
+brew<span class="w"> </span>install<span class="w"> </span>master-pdf-editor
+brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>libreoffice
+brew<span class="w"> </span>install<span class="w"> </span>openssh
+brew<span class="w"> </span>install<span class="w"> </span>fail2ban
+brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>cron
+</pre></div>
+</div>
+</section>
+<section id="install-python">
+<h2>Install Python<a class="headerlink" href="#install-python" title="Link to this heading"></a></h2>
+<p>Macintosh computers come pre-installed with Python; however, the installed
+Python version is most likely outdated.  Install a modern version with the
+following commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>python3
+python<span class="w"> </span>-m<span class="w"> </span>ensurepip<span class="w"> </span>--upgrade
+</pre></div>
+</div>
+<p>Install pyppoetry as a package manager.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-sSL<span class="w"> </span>https://install.python-poetry.org<span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-
+poetry<span class="w"> </span>config<span class="w"> </span>virtualenvs.in-project<span class="w"> </span><span class="nb">true</span>
+</pre></div>
+</div>
+</section>
+<section id="instal-general-software-development-packages">
+<h2>Instal General Software Development Packages<a class="headerlink" href="#instal-general-software-development-packages" title="Link to this heading"></a></h2>
+<p>Install the following software development tools.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>git
+xcode-select<span class="w"> </span>--install
+brew<span class="w"> </span>install<span class="w"> </span>googletest
+brew<span class="w"> </span>install<span class="w"> </span>cmake
+brew<span class="w"> </span>install<span class="w"> </span>cmocka
+</pre></div>
+</div>
+</section>
+<section id="install-arduino-if-it-a-required-package">
+<h2>Install Arduino if it a required package<a class="headerlink" href="#install-arduino-if-it-a-required-package" title="Link to this heading"></a></h2>
+<p>Arduino support packages can be installed with the following commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>arduino
+brew<span class="w"> </span>install<span class="w"> </span>arduino-cli
+arduino-cli<span class="w"> </span>core<span class="w"> </span>update-index
+arduino-cli<span class="w"> </span>board<span class="w"> </span>list
+arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:avr
+arduino-cli<span class="w"> </span>core<span class="w"> </span>list
+</pre></div>
+</div>
+<p>Install the Arduino AVER C Support</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>tap<span class="w"> </span>osx-cross/avr
+brew<span class="w"> </span>install<span class="w"> </span>avr-gcc
+brew<span class="w"> </span>install<span class="w"> </span>avrdude
+</pre></div>
+</div>
+</section>
+<section id="backup">
+<h2>Backup<a class="headerlink" href="#backup" title="Link to this heading"></a></h2>
+<p>Format the drive.  Click on the <code class="docutils literal notranslate"><span class="pre">Disk</span> <span class="pre">Utility</span></code>.  Click on the backup drive,
+then click Erase.  This should prompt the user to enter the format type,
+which should be <code class="docutils literal notranslate"><span class="pre">MacOS</span> <span class="pre">Extended</span> <span class="pre">(journaled)</span></code></p>
+</section>
 </section>
 
 
@@ -154,6 +430,7 @@ switching to <code class="docutils literal notranslate"><span class="pre">ITerm2
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Arch Linux Installation for Jon Webb!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="DB.html" class="btn btn-neutral float-right" title="Database Installations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

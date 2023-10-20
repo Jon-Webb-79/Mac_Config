@@ -19,6 +19,8 @@ management systems.
    :caption: Contents:
 
    Package Installations <Post>
+   Databases <DB>
+   Troubleshooting <Trouble>
 
 Indices and tables
 ==================
