@@ -28,5 +28,5 @@ This project uses a basic MIT license
 Documentation
 =============
 The data in this repository can be used in conjunction with the 
-`ReadtheDocs <https://linux-config.readthedocs.io/en/latest/>`_ 
+`ReadtheDocs <https://mac-config.readthedocs.io/en/latest/>`_ 
 documentation to build your own Arch Linux based operating system.
