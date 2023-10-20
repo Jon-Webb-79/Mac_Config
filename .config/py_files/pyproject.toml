@@ -1,6 +1,6 @@
 
 classifiers = [
-	"Development Status :: 4 - Beta",
+    "Development Status :: 4 - Beta",
     "Programming Language :: Python :: 3",
 	"Programming Language :: Python :: 3.10",
     "License :: OSI Approved :: MIT License",
@@ -8,13 +8,16 @@ classifiers = [
 	"Operating System :: POSIX :: Linux",
 ]
 
+[tool.isort]
+profile = 'black'
+
 [tool.black]
 line-length = 90
 target-version = ['py38', 'py39', 'py310']
 include = '\.pyi?$'
 exclude = '''
 /(
-    \.egggs
+    \.eggs
   | \.git
   | \.hg
   | \.mypy_cache
@@ -24,8 +27,8 @@ exclude = '''
   | buck-out
   | build
   | dist
-  # The following are specific to Black
-  | lib2to3
+  # The following are specific to Black, you probably don't want those.
+  | blib2to3
   | tests/data
   | profiling
 )/
@@ -34,44 +37,40 @@ exclude = '''
 [tool.tox]
 legacy_tox_ini = """
 	[tox]
-	env_list = py310, mypy, flake8, coverage, black
+    env_list = py310, mypy, lint, coverage
 
-	[testenv]
-	description = Conduct tests with pytest
-	deps = pytest
-	commands = pytest tests
+    [testenv]
+	description = run tests with pytest
+    deps = pytest
+    commands = pytest tests -v {posargs}
 
-	[testenv:mypy]
+	[testeng:mypy]
 	deps = mypy
-	commandds = mypy pyproject
+	commands = mypy pyproject
 
-	[testenv:flake8]
-	deps = flake8
-	commands = flake8 pyproject
-
-	[testenv:black]
-	deps = black
-	commands black pyproject
+	[testenv:lint]
+	deps = pre-commit
+	commands = pre-commit run --all-files --show-diff-on-failure
 
 	[testenv:coverage]
 	deps = pytest-cov
-	commands = 
+	commands =
 		pytest --cov --cov-report term-missing --cov-report html --cov-append --cov-context=test --cov-fail-under=100 {posargs}
 	
 	[gh-actions]
-	python = 
-	    3.10: py310, mypy, lint, coverage
+	python =
+		3.10: py310, mypy, lint, coverage
 """
 
 [tool.mypy]
 exclude = ["docs", "tests"]
 check_untyped_defs = true
-disallow_untyped_defs = true
+disallow_any_generics = true
 disallow_incomplete_defs = true
 disallow_untyped_defs = true
 no_implicit_optional = true
 
-[tool.pytest.init_options]
+[tool.pytest.ini_options]
 testpaths = ["tests"]
 console_output_style = "progress"
 

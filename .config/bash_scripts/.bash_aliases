@@ -40,6 +40,7 @@ alias cdnvim='cd ~/.config/nvim'
 # --------------------------------------------------------------------------------
 # Commands to display relevant file information
 
+alias open='xdg-open'
 alias paths='echo -e ${PATH//:/\\n}'        # Display all PATHS
 alias execs='type -all'                     # Display all executables below directory
 alias show_options='shopt'                  # Display all option status
@@ -54,15 +55,15 @@ ffe() { /usr/bin/find . -name '*'"$@" ; }   # Find file whose name ends with
 #   la_exec report
 
 latex_exec() {
-    dir=`pwd`
+        dir=`pwd`
 	tex_file=$dir$'/'$1'.tex'
 	dvi_file=$dir$'/'$1'.dvi'
-    ps_file=$dir$'/'$1'.ps'
-    pdf_file=$dir$'/'$1'.pdf'
-    latex $tex_file 
+        ps_file=$dir$'/'$1'.ps'
+        pdf_file=$dir$'/'$1'.pdf'
+        latex $tex_file 
 	dvips $dvi_file
 	ps2pdf $ps_file 
-    open $pdf_file
+        open $pdf_file
 } 
 # --------------------------------------------------------------------------------
 # Internet aliases
@@ -101,8 +102,6 @@ ii() {
 # Code Development support aliases
 
 # Python Development scripts
-alias python="/usr/local/bin/python3"
-alias python3="/usr/local/bin/python3"
 alias cd-python='cd ~/Code_Dev/Python'
 alias create_py_dir='bash ~/.config/bash_scripts/create_dir.sh Python'
 alias create_py_file='bash ~/.config/bash_scripts/create_file.sh Python'     # Create a Python file
@@ -196,14 +195,14 @@ create_vid_dir() {
 	mkdir "09-Exports"
 	cd ..
 }
-# ==========================================================================================
-# ==========================================================================================
-# Application short cuts
+# ================================================================================
+# # ==============================================================================
+# Application aliases
 
 todo_list() {
 	cd ~/apps/todo_six/
 	va
-	python3 todo.py
+	python todo.py
 	cd $HOME
 }
 # ================================================================================

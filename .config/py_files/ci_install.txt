@@ -14,3 +14,4 @@ The following instructions are to be used for installing the continuous integrat
 7. Create github account and upload (follow github instructions)
 8. Upload to github
 	- git push -u origin main
+

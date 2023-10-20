@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash 
+#!/bin/bash 
 
 # tun_tests.sh
 # Runs unit tests, and prints results to a file with a datetime

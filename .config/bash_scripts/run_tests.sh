@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash 
+#!/bin/bash 
 
 # reun_tests.sh
 

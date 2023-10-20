@@ -29,10 +29,11 @@ fi
 
 name='Jonathan A. Webb'
 company='Jon Webb'
-make_dir='/bin/mkdir'
+make_dir='/usr/bin/mkdir'
 create_file='/usr/bin/touch'
-copy='/bin/cp'
+copy='/usr/bin/cp'
 replace='/usr/bin/sed'
+dir=`/usr/bin/pwd`
 # --------------------------------------------------------------------------------
 # Ask the user for the name of the project
 
@@ -76,8 +77,8 @@ if [[ $language == "Python" ]] then
 	$make_dir 'docs/requirements'
 	poetry add -G dev pytest
 	poetry add -G dev flake8
-	poetry add -G dev black
 	poetry add -G dev mypy
+	poetry add -G dev black
 	poetry add -G dev isort
 	poetry add -G dev flake8-bandit
 	poetry add -G dev flake8-bugbear
@@ -93,10 +94,11 @@ if [[ $language == "Python" ]] then
 	$make_dir 'docs/sphinx/source'
 	cat $py_dir'pyproject.toml' >> $path_length'/pyproject.toml'
 	$copy $py_dir'.pre-commit-config.yaml' $path_length'/.pre-commit-config.yaml'
+	$copy $py_dir'.readthedocs.yaml' $path_length'/.readthedocs.yaml'
 	$copy $py_dir'ci_install.txt' $path_length'/ci_install.txt'
 	$copy $py_dir'.flake8' $path_length'/.flake8'
-	$copy $py_dir'.gitignore' $path_length'/.gitignore'
 	$copy $py_dir'conftest.py' $path_length'/conftest.py'
+	$copy $py_dir'.gitignore' $path_length'/.gitignore'
 	$copy $py_dir'LICENSE' $path_length'/LICENSE'
 	$copy $py_dir'test.py' $path_length'/tests/test.py'
 	$copy $py_dir'main.py' $path_length'/'$project_name'/main.py'
@@ -104,9 +106,6 @@ if [[ $language == "Python" ]] then
 	$copy $py_dir'conf.py' $path_length'/docs/sphinx/source/conf.py'
 	$copy $py_dir'index.rst' $path_length'/docs/sphinx/source/index.rst'
     $copy $py_dir'module.rst' $path_length'/docs/sphinx/source/module.rst'
-	$copy $py_dir'conf.py' $path_length'/docs/sphinx/source/conf.py'
-	$copy $py_dir'index.rst' $path_length'/docs/sphinx/source/index.rst'
-    $copy $py_dir'Introduction.rst' $path_length'/docs/sphinx/source/Introduction.rst'
 	$copy $py_dir'sphinx_readme.txt' $path_length'/docs/sphinx/readme.txt'
 	$copy $py_dir'Makefile' $path_length'/Makefile'
 	$copy -r $py_dir'.github' $path_length'/.github'
@@ -118,31 +117,32 @@ if [[ $language == "Python" ]] then
     $copy $HOME'/.config/zsh_scripts/unit_tests.zsh' $path_length'/scripts/zsh/unit_tests.zsh'
 
 	# Update files with day, month, year
-    $replace -i '' -e "s/Day/$day/g" $path_length'/tests/test.py'
-    $replace -i '' -e "s/Month/$month/g" $path_length'/tests/test.py'
-	$replace -i '' -e "s/Year/$year/g" $path_length'/tests/test.py'
-    $replace -i '' -e "s/Name/$name/g" $path_length'/tests/test.py'
-	$replace -i '' -e "s/Company/$company/g" $path_length'/tests/test.py'
-	$replace -i '' -e "s/filename/test/g" $path_length'/tests/test.py'
+    $replace -i "s/Day/$day/g" $path_length'/tests/test.py'
+    $replace -i "s/Month/$month/g" $path_length'/tests/test.py'
+	$replace -i "s/Year/$year/g" $path_length'/tests/test.py'
+    $replace -i "s/Name/$name/g" $path_length'/tests/test.py'
+	$replace -i "s/Company/$company/g" $path_length'/tests/test.py'
+	$replace -i "s/filename/test/g" $path_length'/tests/test.py'
 
-	$replace -i '' -e "s/Day/$day/g" $path_length'/conftest.py'
-    $replace -i '' -e "s/Month/$month/g" $path_length'/conftest.py'
-	$replace -i '' -e "s/Year/$year/g" $path_length'/conftest.py'
-    $replace -i '' -e "s/Name/$name/g" $path_length'/conftest.py'
-	$replace -i '' -e "s/Company/$company/g" $path_length'/conftest.py'
+	$replace -i "s/Day/$day/g" $path_length'/conftest.py'
+    $replace -i "s/Month/$month/g" $path_length'/conftest.py'
+	$replace -i "s/Year/$year/g" $path_length'/conftest.py'
+    $replace -i "s/Name/$name/g" $path_length'/conftest.py'
+	$replace -i "s/Company/$company/g" $path_length'/conftest.py'
 
-	$replace -i '' -e "s/README.md/README.rst/g" $path_length'/pyproject.toml'
-	$replace -i '' -e "s/Project_Name/$project_name/g" $path_length'/README.rst'
-	$replace -i '' -e "s/pyproject/$project_name/g" $path_length'/pyproject.toml'
-    $replace -i '' -e "s/Day/$day/g" $path_length'/'$project_name'/main.py'
-	$replace -i '' -e "s/Month/$month/g" $path_length'/'$project_name'/main.py'
-	$replace -i '' -e "s/Year/$year/g" $path_length'/'$project_name'/main.py'
-	$replace -i '' -e "s/Name/$name/g" $path_length'/'$project_name'/main.py'
-	$replace -i '' -e "s/Company/$company/g" $path_length'/'$project_name'/main.py'
-	$replace -i '' -e "s/filename/main/g" $path_length'/'$project_name'/main.py'
+	$replace -i "s/README.md/README.rst/g" $path_length'/pyproject.toml' 
+	$replace -i "s/Project_Name/$project_name/g" $path_length'/README.rst'
+	$replace -i "s/pyproject/$project_name/g" $path_length'/pyproject.toml'
+    $replace -i "s/Day/$day/g" $path_length'/'$project_name'/main.py'
+	$replace -i "s/Month/$month/g" $path_length'/'$project_name'/main.py'
+	$replace -i "s/Year/$year/g" $path_length'/'$project_name'/main.py'
+	$replace -i "s/Name/$name/g" $path_length'/'$project_name'/main.py'
+	$replace -i "s/Company/$company/g" $path_length'/'$project_name'/main.py'
+	$replace -i "s/filename/main/g" $path_length'/'$project_name'/main.py'
 
 	$script_type $script_dir'create_project_tmux.zsh' Python $project_name
-# -------------------------------------------------------------------------------
+fi
+# --------------------------------------------------------------------------------
 # Other language boilerplate
 
 if [[ $language != "Python" ]] then
@@ -156,9 +156,11 @@ if [[ $language != "Python" ]] then
 	$make_dir 'data/test'
 	$make_dir 'docs'
 	$make_dir 'docs/requirements'
+	$make_dir 'docs/doxygen'
+	$make_dir 'docs/doxygen/sphinx_docs'
+    $copy $c_dir'.readthedocs.yaml' $path_length'/docs/doxygen/.readthedocs.yaml'
 	$copy $c_dir'Doxyfile' $path_length'/docs/doxygen/Doxygen'
 	$copy $c_dir'mainpage.dox' $path_length'/docs/doxygen/mainpage.dox'
-	$copy $c_dir'.readthedocs.yaml' $path_length'/docs/doxygen/.readthedocs.yaml'
 	$copy $c_dir'sphinx_readme.txt' $path_length'/docs/doxygen/readme.txt'
 	$copy $c_dir'index.rst' $path_length'/docs/doxygen/sphinx_docs/index.rst'
 	$copy $c_dir'module.rst' $path_length'/docs/doxygen/sphinx_docs/module.rst'
@@ -167,9 +169,10 @@ if [[ $language != "Python" ]] then
 	pip install sphinx-rtd-theme
 fi
 # --------------------------------------------------------------------------------
-# C Specific files and directories
+# C specific files and directories
 
 if [[ $language == "C" ]] then
+	$copy $c_dir'conf.py' $path_length'/docs/doxygen/sphinx_docs/conf.py'
     $copy $c_dir'.gitignore' $path_length'/.gitignore'
     $copy $c_dir'README.rst' $path_length'/README.rst'
     $copy $c_dir'LICENSE' $path_length'/LICENSE'
@@ -178,78 +181,73 @@ if [[ $language == "C" ]] then
 	$make_dir $path_length'/'$project_name'/test'
     $make_dir $path_length'/'$project_name'/build'
 	$make_dir $path_length'/'$project_name'/include'
+
     $copy $c_dir'CMake1.txt' $path_length'/'$project_name'/CMakeLists.txt'
-    $copy $c_dir'CMake2.txt' $path_length'/'$project_name'/include/CMakeLists.txt'
     $copy $c_dir'CMaketest.txt' $path_length'/'$project_name'/test/CMakeLists.txt'
     $copy $script_dir'build.zsh' $path_length'/scripts/'$script_type'/build.zsh'
     $copy $script_dir'compile.zsh' $path_length'/scripts/'$script_type'/compile.zsh'
 
-    $replace -i '' -e "s/Day/$day/g" $path_length'/'$project_name'/main.c'
-	$replace -i '' -e "s/Month/$month/g" $path_length'/'$project_name'/main.c'
-	$replace -i '' -e "s/Year/$year/g" $path_length'/'$project_name'/main.c'
-	$replace -i '' -e "s/Name/$name/g" $path_length'/'$project_name'/main.c'
-	$replace -i '' -e "s/Company/$company/g" $path_length'/'$project_name'/main.c'
-    $replace -i '' -e "s/filename/main/g" $path_length'/'$project_name'/main.c'
+    $replace -i "s/Day/$day/g" $path_length'/'$project_name'/main.c'
+	$replace -i "s/Month/$month/g" $path_length'/'$project_name'/main.c'
+	$replace -i "s/Year/$year/g" $path_length'/'$project_name'/main.c'
+	$replace -i "s/Name/$name/g" $path_length'/'$project_name'/main.c'
+	$replace -i "s/Company/$company/g" $path_length'/'$project_name'/main.c'
+    $replace -i "s/filename/main/g" $path_length'/'$project_name'/main.c'
 
     $copy -i $c_dir'test.c' $path_length'/'$project_name'/test/test.c'
 
-	$replace -i '' -e "s/Day/$day/g" $path_length'/'$project_name'/test/test.c'
-	$replace -i '' -e "s/Month/$month/g" $path_length'/'$project_name'/test/test.c'
-	$replace -i '' -e "s/Year/$year/g" $path_length'/'$project_name'/test/test.c'
-	$replace -i '' -e "s/Company/$company/g" $path_length'/'$project_name'/test/test.c'
-	$replace -i '' -e "s/file_name/test/g" $path_length'/'$project_name'/test/test.c'
-	$replace -i '' -e "s/Name/$name/g" $path_length'/'$project_name'/test/test.c'
-    $replace -i '' -e "s/filename/test/g" $path_length'/'$project_name'/test/test.c'
+	$replace -i "s/Day/$day/g" $path_length'/'$project_name'/test/test.c'
+	$replace -i "s/Month/$month/g" $path_length'/'$project_name'/test/test.c'
+	$replace -i "s/Year/$year/g" $path_length'/'$project_name'/test/test.c'
+	$replace -i "s/Company/$company/g" $path_length'/'$project_name'/test/test.c'
+	$replace -i "s/file_name/test/g" $path_length'/'$project_name'/test/test.c'
+	$replace -i "s/Name/$name/g" $path_length'/'$project_name'/test/test.c'
+    $replace -i "s/filename/test/g" $path_length'/'$project_name'/test/test.c'
 
 	$copy -i $c_dir'test.h' $path_length'/'$project_name'/test/test.h'
 
-	$replace -i '' -e "s/Day/$day/g" $path_length'/'$project_name'/test/test.h'
-	$replace -i '' -e "s/Month/$month/g" $path_length'/'$project_name'/test/test.h'
-	$replace -i '' -e "s/Year/$year/g" $path_length'/'$project_name'/test/test.h'
-	$replace -i '' -e "s/Company/$company/g" $path_length'/'$project_name'/test/test.h'
-	$replace -i '' -e "s/file_name/test/g" $path_length'/'$project_name'/test/test.h'
-	$replace -i '' -e "s/Name/$name/g" $path_length'/'$project_name'/test/test.h'
-    $replace -i '' -e "s/filename/test/g" $path_length'/'$project_name'/test/test.h'
+	$replace -i "s/Day/$day/g" $path_length'/'$project_name'/test/test.h'
+	$replace -i "s/Month/$month/g" $path_length'/'$project_name'/test/test.h'
+	$replace -i "s/Year/$year/g" $path_length'/'$project_name'/test/test.h'
+	$replace -i "s/Company/$company/g" $path_length'/'$project_name'/test/test.h'
+	$replace -i "s/file_name/test/g" $path_length'/'$project_name'/test/test.h'
+	$replace -i "s/Name/$name/g" $path_length'/'$project_name'/test/test.h'
+    $replace -i "s/filename/test/g" $path_length'/'$project_name'/test/test.h'
 
 	$copy -i $c_dir'unit_test.c' $path_length'/'$project_name'/test/unit_test.c'
 
-	$replace -i '' -e "s/Day/$day/g" $path_length'/'$project_name'/test/unit_test.c'
-	$replace -i '' -e "s/Month/$month/g" $path_length'/'$project_name'/test/unit_test.c'
-	$replace -i '' -e "s/Year/$year/g" $path_length'/'$project_name'/test/unit_test.c'
-	$replace -i '' -e "s/Company/$company/g" $path_length'/'$project_name'/test/unit_test.c'
-	$replace -i '' -e "s/file_name/test/g" $path_length'/'$project_name'/test/unit_test.c'
-	$replace -i '' -e "s/Name/$name/g" $path_length'/'$project_name'/test/unit_test.c'
-    $replace -i '' -e "s/filename/test/g" $path_length'/'$project_name'/test/unit_test.c'
+	$replace -i "s/Day/$day/g" $path_length'/'$project_name'/test/unit_test.c'
+	$replace -i "s/Month/$month/g" $path_length'/'$project_name'/test/unit_test.c'
+	$replace -i "s/Year/$year/g" $path_length'/'$project_name'/test/unit_test.c'
+	$replace -i "s/Company/$company/g" $path_length'/'$project_name'/test/unit_test.c'
+	$replace -i "s/file_name/test/g" $path_length'/'$project_name'/test/unit_test.c'
+	$replace -i "s/Name/$name/g" $path_length'/'$project_name'/test/unit_test.c'
+    $replace -i "s/filename/test/g" $path_length'/'$project_name'/test/unit_test.c'
 
-    $replace -i '' -e "s/Name/$name/g" $path_length'/'$project_name'/CMakeLists.txt'
-    $replace -i '' -e "s/Month/$month/g" $path_length'/'$project_name'/CMakeLists.txt'
-    $replace -i '' -e "s/Day/$day/g" $path_length'/'$project_name'/CMakeLists.txt'
-	$replace -i '' -e "s/Year/$year/g" $path_length'/'$project_name'/CMakeLists.txt'
-    $replace -i '' -e "s/prjct_name/$project_name/g" $path_length'/'$project_name'/CMakeLists.txt'
-    $replace -i '' -e "s/Company/$company/g" $path_length'/'$project_name'/CMakeLists.txt'
+    $replace -i "s/Name/$name/g" $path_length'/'$project_name'/CMakeLists.txt'
+    $replace -i "s/Month/$month/g" $path_length'/'$project_name'/CMakeLists.txt'
+    $replace -i "s/Day/$day/g" $path_length'/'$project_name'/CMakeLists.txt'
+	$replace -i "s/Year/$year/g" $path_length'/'$project_name'/CMakeLists.txt'
+    $replace -i "s/prjct_name/$project_name/g" $path_length'/'$project_name'/CMakeLists.txt'
+    $replace -i "s/Company/$company/g" $path_length'/'$project_name'/CMakeLists.txt'
 
-    $replace -i '' -e "s/Name/$name/g" $path_length'/'$project_name'/include/CMakeLists.txt'
-    $replace -i '' -e "s/Month/$month/g" $path_length'/'$project_name'/include/CMakeLists.txt'
-    $replace -i '' -e "s/Day/$day/g" $path_length'/'$project_name'/include/CMakeLists.txt'
-	$replace -i '' -e "s/Year/$year/g" $path_length'/'$project_name'/include/CMakeLists.txt'
-    $replace -i '' -e "s/prjct_name/$project_name/g" $path_length'/'$project_name'/include/CMakeLists.txt'
-    $replace -i '' -e "s/Company/$company/g" $path_length'/'$project_name'/include/CMakeLists.txt'
+    $replace -i "s/Name/$name/g" $path_length'/'$project_name'/test/CMakeLists.txt'
+    $replace -i "s/Month/$month/g" $path_length'/'$project_name'/test/CMakeLists.txt'
+    $replace -i "s/Day/$day/g" $path_length'/'$project_name'/test/CMakeLists.txt'
+	$replace -i "s/Year/$year/g" $path_length'/'$project_name'/test/CMakeLists.txt'
+    $replace -i "s/prjct_name/$project_name/g" $path_length'/'$project_name'/test/CMakeLists.txt'
+    $replace -i "s/Company/$company/g" $path_length'/'$project_name'/test/CMakeLists.txt'
 
-    $replace -i '' -e "s/Name/$name/g" $path_length'/'$project_name'/test/CMakeLists.txt'
-    $replace -i '' -e "s/Month/$month/g" $path_length'/'$project_name'/test/CMakeLists.txt'
-    $replace -i '' -e "s/Day/$day/g" $path_length'/'$project_name'/test/CMakeLists.txt'
-	$replace -i '' -e "s/Year/$year/g" $path_length'/'$project_name'/test/CMakeLists.txt'
-    $replace -i '' -e "s/prjct_name/$project_name/g" $path_length'/'$project_name'/test/CMakeLists.txt'
-    $replace -i '' -e "s/Company/$company/g" $path_length'/'$project_name'/test/CMakeLists.txt'
+    $replace -i "s/prjct_name/$project_name/g" $path_length'/scripts/'$script_type'/build.zsh' 
+    $replace -i "s/prjct_name/$project_name/g" $path_length'/scripts/'$script_type'/compile.zsh'
 
-    $replace -i '' -e "s/prjct_name/$project_name/g" $path_length'/scripts/'$script_type'/build.zsh' 
-    $replace -i '' -e "s/prjct_name/$project_name/g" $path_length'/scripts/'$script_type'/compile.zsh'
+	# Determine the installed version of CMake
+	CMAKE_VERSION=$(cmake --version | head -n1 | awk '{print $3}')
+
+	# Replace placeholders in CMakeLists.txt with the detected version
+	sed -i "s/X\.YY\.ZZ/${CMAKE_VERSION}/" $project_name'/CMakeLists.txt'
 
 	$script_type $script_dir'create_project_tmux.zsh' C $project_name
-fi
-# --------------------------------------------------------------------------------
-# Other language boilerplate
-
 # --------------------------------------------------------------------------------
 # C++ Specific files and directories
 
@@ -267,46 +265,46 @@ elif [[ $language == "C++" ]] then
 	$copy $script_dir'build.zsh' $path_length'/scripts/'$script_type'/build.zsh'
     $copy $script_dir'compile.zsh' $path_length'/scripts/'$script_type'/compile.zsh'
 
-    $replace -i '' -e "s/Day/$day/g" $path_length'/'$project_name'/main.cpp'
-	$replace -i '' -e "s/Month/$month/g" $path_length'/'$project_name'/main.cpp'
-	$replace -i '' -e "s/Year/$year/g" $path_length'/'$project_name'/main.cpp'
-	$replace -i '' -e "s/Name/$name/g" $path_length'/'$project_name'/main.cpp'
-	$replace -i '' -e "s/Company/$company/g" $path_length'/'$project_name'/main.cpp'
-    $replace -i '' -e "s/filename/main/g" $path_length'/'$project_name'/main.cpp'
+    $replace -i "s/Day/$day/g" $path_length'/'$project_name'/main.cpp'
+	$replace -i "s/Month/$month/g" $path_length'/'$project_name'/main.cpp'
+	$replace -i "s/Year/$year/g" $path_length'/'$project_name'/main.cpp'
+	$replace -i "s/Name/$name/g" $path_length'/'$project_name'/main.cpp'
+	$replace -i "s/Company/$company/g" $path_length'/'$project_name'/main.cpp'
+    $replace -i "s/filename/main/g" $path_length'/'$project_name'/main.cpp'
 
     $copy -i $cpp_dir'test.cpp' $path_length'/'$project_name'/test/test.cpp'
 
-    $replace -i '' -e "s/Day/$day/g" $path_length'/'$project_name'/test/test.cpp'
-	$replace -i '' -e "s/Month/$month/g" $path_length'/'$project_name'/test/test.cpp'
-	$replace -i '' -e "s/Year/$year/g" $path_length'/'$project_name'/test/test.cpp'
-	$replace -i '' -e "s/Company/$company/g" $path_length'/'$project_name'/test/test.cpp'
-	$replace -i '' -e "s/file_name/test/g" $path_length'/'$project_name'/test/test.cpp'
-	$replace -i '' -e "s/Name/$name/g" $path_length'/'$project_name'/test/test.cpp'
-    $replace -i '' -e "s/filename/test/g" $path_length'/'$project_name'/test/test.cpp'
+    $replace -i "s/Day/$day/g" $path_length'/'$project_name'/test/test.cpp'
+	$replace -i "s/Month/$month/g" $path_length'/'$project_name'/test/test.cpp'
+	$replace -i "s/Year/$year/g" $path_length'/'$project_name'/test/test.cpp'
+	$replace -i "s/Company/$company/g" $path_length'/'$project_name'/test/test.cpp'
+	$replace -i "s/file_name/test/g" $path_length'/'$project_name'/test/test.cpp'
+	$replace -i "s/Name/$name/g" $path_length'/'$project_name'/test/test.cpp'
+    $replace -i "s/filename/test/g" $path_length'/'$project_name'/test/test.cpp'
 
-	$replace -i '' -e "s/Name/$name/g" $path_length'/'$project_name'/CMakeLists.txt'
-    $replace -i '' -e "s/Month/$month/g" $path_length'/'$project_name'/CMakeLists.txt'
-    $replace -i '' -e "s/Day/$day/g" $path_length'/'$project_name'/CMakeLists.txt'
-	$replace -i '' -e "s/Year/$year/g" $path_length'/'$project_name'/CMakeLists.txt'
-    $replace -i '' -e "s/prjct_name/$project_name/g" $path_length'/'$project_name'/CMakeLists.txt'
-    $replace -i '' -e "s/Company/$company/g" $path_length'/'$project_name'/CMakeLists.txt'
+	$replace -i "s/Name/$name/g" $path_length'/'$project_name'/CMakeLists.txt'
+    $replace -i "s/Month/$month/g" $path_length'/'$project_name'/CMakeLists.txt'
+    $replace -i "s/Day/$day/g" $path_length'/'$project_name'/CMakeLists.txt'
+	$replace -i "s/Year/$year/g" $path_length'/'$project_name'/CMakeLists.txt'
+    $replace -i "s/prjct_name/$project_name/g" $path_length'/'$project_name'/CMakeLists.txt'
+    $replace -i "s/Company/$company/g" $path_length'/'$project_name'/CMakeLists.txt'
 
-    $replace -i '' -e "s/Name/$name/g" $path_length'/'$project_name'/include/CMakeLists.txt'
-    $replace -i '' -e "s/Month/$month/g" $path_length'/'$project_name'/include/CMakeLists.txt'
-    $replace -i '' -e "s/Day/$day/g" $path_length'/'$project_name'/include/CMakeLists.txt'
-	$replace -i '' -e "s/Year/$year/g" $path_length'/'$project_name'/include/CMakeLists.txt'
-    $replace -i '' -e "s/prjct_name/$project_name/g" $path_length'/'$project_name'/include/CMakeLists.txt'
-    $replace -i '' -e "s/Company/$company/g" $path_length'/'$project_name'/include/CMakeLists.txt'
+    $replace -i "s/Name/$name/g" $path_length'/'$project_name'/include/CMakeLists.txt'
+    $replace -i "s/Month/$month/g" $path_length'/'$project_name'/include/CMakeLists.txt'
+    $replace -i "s/Day/$day/g" $path_length'/'$project_name'/include/CMakeLists.txt'
+	$replace -i "s/Year/$year/g" $path_length'/'$project_name'/include/CMakeLists.txt'
+    $replace -i "s/prjct_name/$project_name/g" $path_length'/'$project_name'/include/CMakeLists.txt'
+    $replace -i "s/Company/$company/g" $path_length'/'$project_name'/include/CMakeLists.txt'
 
-    $replace -i '' -e "s/Name/$name/g" $path_length'/'$project_name'/test/CMakeLists.txt'
-    $replace -i '' -e "s/Month/$month/g" $path_length'/'$project_name'/test/CMakeLists.txt'
-    $replace -i '' -e "s/Day/$day/g" $path_length'/'$project_name'/test/CMakeLists.txt'
-	$replace -i '' -e "s/Year/$year/g" $path_length'/'$project_name'/test/CMakeLists.txt'
-    $replace -i '' -e "s/prjct_name/$project_name/g" $path_length'/'$project_name'/test/CMakeLists.txt'
-    $replace -i '' -e "s/Company/$company/g" $path_length'/'$project_name'/test/CMakeLists.txt'
+    $replace -i "s/Name/$name/g" $path_length'/'$project_name'/test/CMakeLists.txt'
+    $replace -i "s/Month/$month/g" $path_length'/'$project_name'/test/CMakeLists.txt'
+    $replace -i "s/Day/$day/g" $path_length'/'$project_name'/test/CMakeLists.txt'
+	$replace -i "s/Year/$year/g" $path_length'/'$project_name'/test/CMakeLists.txt'
+    $replace -i "s/prjct_name/$project_name/g" $path_length'/'$project_name'/test/CMakeLists.txt'
+    $replace -i "s/Company/$company/g" $path_length'/'$project_name'/test/CMakeLists.txt'
 
-	$replace -i '' -e "s/prjct_name/$project_name/g" $path_length'/scripts/'$script_type'/build.zsh' 
-    $replace -i '' -e "s/prjct_name/$project_name/g" $path_length'/scripts/'$script_type'/compile.zsh'
+	$replace -i "s/prjct_name/$project_name/g" $path_length'/scripts/'$script_type'/build.zsh' 
+    $replace -i "s/prjct_name/$project_name/g" $path_length'/scripts/'$script_type'/compile.zsh'
 	$script_type $script_dir'create_project_tmux.zsh' C++ $project_name
 fi
 # ================================================================================

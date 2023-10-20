@@ -1,10 +1,11 @@
+
 # ==========================================================================================
 # ==========================================================================================
 
-# File:    conftest.py
+# File:    conftest.py.py
 # Date:    Month Day, Year
 # Author:  Name
-# Purpose: This file contains test fixtures and marks that are to be applied globaly
+# Purpose: This file contains pytest fixtures and mark information
 # ==========================================================================================
 # ==========================================================================================
 # Insert Code here
